@@ -1,8 +1,32 @@
+import { DEFAULT_SETTINGS } from './defaults.js';
+import { navigateToRandomSite } from './ringsurf.js';
+
+// Initialize these settings here, not in options. Options won't run until the
+// option screen is open.
+async function initializeSettings() {
+    const settings = await browser.storage.local.get(null);
+    const updates = {};
+    
+    for (const [key, defaultValue] of Object.entries(DEFAULT_SETTINGS)) {
+        if (settings[key] === undefined) {
+            updates[key] = defaultValue;
+        }
+    }
+    
+    if (Object.keys(updates).length > 0) {
+        await browser.storage.local.set(updates);
+    }
+}
+
+initializeSettings();
+
+// To disable the popup, we actually need to clear out the popup browseraction
+// setting.
 async function setPopupBehavior() {
     const { usePopup } = await browser.storage.local.get("usePopup");
     
     if (usePopup) {
-        browser.browserAction.setPopup({ popup: "popup/ringsurf.html" });
+        browser.browserAction.setPopup({ popup: "popup/popup.html" });
     } else {
         browser.browserAction.setPopup({ popup: "" });
     }
@@ -17,38 +41,14 @@ browser.storage.onChanged.addListener((changes, areaName) => {
     }
 });
 
-// Navigate to a random site when extension icon is clicked
+// Handle no-popup navigation
 browser.browserAction.onClicked.addListener(async () => {
-    const { usePopup, webringUrls } = await browser.storage.local.get(["usePopup", "webringUrls"]);
+    const { usePopup } = await browser.storage.local.get("usePopup");
     
     if (usePopup) {
         // Let the popup handle navigation
         return;
     }
 
-    if (!webringUrls || webringUrls.length === 0) {
-        console.error("No webring URLs configured");
-        return;
-    }
-
-    const url = webringUrls[Math.floor(Math.random() * webringUrls.length)];
-    const { newTab } = await browser.storage.local.get("newTab");
-    
-    if (newTab) {
-        browser.tabs.create({ url })
-            .then(() => {
-                console.log("New tab opened successfully.");
-            })
-            .catch((error) => {
-                console.error("Error opening new tab:", error);
-            });
-    } else {
-        browser.tabs.update({ url })
-            .then(() => {
-                console.log("Current tab URL changed successfully.");
-            })
-            .catch((error) => {
-                console.error("Error changing current tab URL:", error);
-            });
-    }
+    await navigateToRandomSite();
 });

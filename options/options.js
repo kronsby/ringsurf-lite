@@ -1,7 +1,8 @@
-const DEFAULT_WEBRINGS = [
-    "https://fediring.net/random",
-    "http://geekring.net/site/91/random"
-];
+/** 
+ * This is only responsible for updating the settings. Initialization is in
+ * background.js
+ */
+import { DEFAULT_SETTINGS } from '../defaults.js';
 
 async function saveOptions(e) {
     e.preventDefault();
@@ -16,22 +17,13 @@ async function saveOptions(e) {
 }
 
 async function restoreOptions() {
-    const { newTab, usePopup, webringUrls } = await browser.storage.local.get(["newTab", "usePopup", "webringUrls"]);
-    document.getElementById("newtab").checked = newTab ?? false;
-    document.getElementById("usepopup").checked = usePopup ?? true; // Default to true for popup
-    document.getElementById("webringurls").value = (webringUrls ?? DEFAULT_WEBRINGS).join('\n');
+    const settings = await browser.storage.local.get(null);
+    
+    // Use stored values or defaults if not set
+    document.getElementById("newtab").checked = settings.newTab ?? DEFAULT_SETTINGS.newTab;
+    document.getElementById("usepopup").checked = settings.usePopup ?? DEFAULT_SETTINGS.usePopup;
+    document.getElementById("webringurls").value = (settings.webringUrls ?? DEFAULT_SETTINGS.webringUrls).join('\n');
 }
 
-// Initialize storage with defaults if not already set
-async function initializeStorage() {
-    const { webringUrls } = await browser.storage.local.get("webringUrls");
-    if (!webringUrls) {
-        await browser.storage.local.set({ webringUrls: DEFAULT_WEBRINGS });
-    }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    initializeStorage();
-    restoreOptions();
-});
+document.addEventListener("DOMContentLoaded", restoreOptions);
 document.getElementById("settings-form").addEventListener("submit", saveOptions);
