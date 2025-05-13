@@ -1,0 +1,104 @@
+:root {
+    --primary-color: #7E57C2;
+    --text-color: #E0E0E0;
+    --bg-color: #121212;
+    --card-bg: #1E1E1E;
+    --border-color: #333;
+    --hover-color: #2C2C2C;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--bg-color);
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+#settings-form {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+input[type="checkbox"] {
+    margin-right: 0.5rem;
+    width: 1.2em;
+    height: 1.2em;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    resize: vertical;
+    min-height: 100px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(126, 87, 194, 0.1);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-weight: 700;
+}
+
+button:hover {
+    background-color: #5E35B1;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(126, 87, 194, 0.3);
+}
+
+/* Add some spacing between checkbox and its label */
+input[type="checkbox"] + label {
+    display: inline;
+    margin-left: 0.5rem;
+}
+
+/* Style the checkbox container */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}

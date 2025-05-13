@@ -2,25 +2,30 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <link rel="stylesheet" href="fonts/roboto.css" />
         <link rel="stylesheet" href="options.css" />
     </head>
     <body>
         <h1>RingSurf Options</h1>
 
         <form id="settings-form">
-            <div>
-                <label for="newtab">Open links in new tab</label>
-                <input type="checkbox" id="newtab" name="newtab" value="newtab">
+            <div class="form-group">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="newtab" name="newtab">
+                    <label for="newtab">Open links in new tab</label>
+                </div>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="usepopup" name="usepopup">
+                    <label for="usepopup">Use popup for navigation</label>
+                </div>
             </div>
-            <div>
-                <label for="usepopup">Use popup for navigation</label>
-                <input type="checkbox" id="usepopup" name="usepopup" value="usepopup">
-            </div>
-            <div>
+            
+            <div class="form-group">
                 <label for="webringurls">Webring URLs (one per line)</label>
-                <textarea id="webringurls" name="webringurls" rows="5" cols="50" placeholder="https://fediring.net/random"></textarea>
+                <textarea id="webringurls" name="webringurls" rows="5" placeholder="https://fediring.net/random"></textarea>
             </div>
-            <button type="submit">Save</button>
+
+            <button type="submit">Save Settings</button>
         </form>
         <script type="module" src="options.js"></script>
     </body>
