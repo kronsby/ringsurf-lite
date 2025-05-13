@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="options.css" />
+    </head>
+    <body>
+        <h1>RingSurf Options</h1>
+
+        <form id="settings-form">
+            <div>
+                <label for="newtab">Open links in new tab</label>
+                <input type="checkbox" id="newtab" name="newtab" value="newtab">
+            </div>
+            <div>
+                <label for="usepopup">Use popup for navigation</label>
+                <input type="checkbox" id="usepopup" name="usepopup" value="usepopup">
+            </div>
+            <div>
+                <label for="webringurls">Webring URLs (one per line)</label>
+                <textarea id="webringurls" name="webringurls" rows="5" cols="50" placeholder="https://fediring.net/random"></textarea>
+            </div>
+            <button type="submit">Save</button>
+        </form>
+        <script src="options.js"></script>
+    </body>
+</html>
