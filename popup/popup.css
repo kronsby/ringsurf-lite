@@ -1,1 +1,136 @@
 /* Add your popup styles here */ 
+
+:root {
+    --primary-color: #7E57C2;
+    --text-color: #E0E0E0;
+    --bg-color: #121212;
+    --card-bg: #1E1E1E;
+    --border-color: #333;
+    --hover-color: #2C2C2C;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    width: 320px;
+    margin: 0;
+    padding: 1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.setting-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+input[type="checkbox"] {
+    width: 1.2em;
+    height: 1.2em;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    resize: vertical;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    box-sizing: border-box;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(126, 87, 194, 0.1);
+}
+
+.primary-button {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-weight: 700;
+    width: 100%;
+}
+
+.secondary-button {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+    align-self: flex-end;
+}
+
+.primary-button:hover {
+    background-color: #5E35B1;
+}
+
+.secondary-button:hover {
+    background-color: rgba(126, 87, 194, 0.1);
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(126, 87, 194, 0.3);
+} 

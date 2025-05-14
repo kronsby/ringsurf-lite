@@ -5,6 +5,6 @@ export const DEFAULT_WEBRINGS = [
 
 export const DEFAULT_SETTINGS = {
     newTab: false,
-    usePopup: false,
+    usePopup: true,
     webringUrls: DEFAULT_WEBRINGS
 }; 

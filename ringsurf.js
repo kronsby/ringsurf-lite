@@ -18,7 +18,7 @@ export async function navigateToRandomSite() {
                 console.error("Error opening new tab:", error);
             });
     } else {
-        browser.tabs.update({ url })
+        browser.tabs.update({ url, loadReplace: false })
             .then(() => {
                 console.log("Current tab URL changed successfully.");
             })

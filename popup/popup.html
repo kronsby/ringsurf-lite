@@ -3,9 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="../options/fonts/roboto.css">
 </head>
 <body>
-    <button id="navigate">Navigate to Random Site</button>
+    <div class="container">
+        <div class="header">
+            <div class="title-container">
+                <img src="../icons/ringsurf2-48.png" alt="RingSurf" class="icon">
+                <h1>RingSurf</h1>
+            </div>
+            <button id="navigate" class="primary-button">Surf 🏄</button>
+        </div>
+        <div class="settings">
+            <div class="setting-group">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="openInNewTab">
+                    <label for="openInNewTab">Open links in new tab</label>
+                </div>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="usePopup">
+                    <label for="usePopup">Use popup for navigation</label>
+                </div>
+            </div>
+            <div class="setting-group">
+                <label for="webringUrls">Webring URLs (one per line):</label>
+                <textarea id="webringUrls" rows="4"></textarea>
+            </div>
+            <button id="save" class="secondary-button">Save</button>
+        </div>
+    </div>
     <script type="module" src="popup.js"></script>
 </body>
 </html> 
