@@ -4,6 +4,8 @@ This is a Firefox extension that makes navigating webrings a bit more smooth. Wh
 navigate to a random webring's "random" URL. This saves you from finding the link on the page, and allows you to surf many webrings
 at once.
 
+<a rel="noreferrer noopener" href="https://addons.mozilla.org/firefox/addon/ringsurf-lite/"><img alt="Firefox Add-ons" src="https://img.shields.io/badge/Firefox_Add--on-141e24.svg?style=for-the-badge&logo=firefox-browser&logoColor=white"></a>
+
 ## Usage
 
 ### Popup Mode
